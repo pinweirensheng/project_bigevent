@@ -31,6 +31,9 @@ $(function () {
         $.post('http://api-breakingnews-web.itheima.net/api/reguser',data,function (res) { 
             console.log(res)
             if(res.status===0){
+
+
+                
                 $(".reg-box").click();
                 $("#form_login [name=username]").val($("#form-reg [name=username]").val())
                 $("#form_login [name=password]").val($("#form-reg [name=password]").val())
