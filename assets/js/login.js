@@ -30,13 +30,26 @@ $(function () {
         }
         $.post('http://api-breakingnews-web.itheima.net/api/reguser',data,function (res) { 
             console.log(res)
-            if(res.status===0){
-
-
-                
+            if(res.status===0){  
                 $(".reg-box").click();
                 $("#form_login [name=username]").val($("#form-reg [name=username]").val())
                 $("#form_login [name=password]").val($("#form-reg [name=password]").val())
+            }
+        })
+    })
+    //登录ajax的获取数据
+    $("#form_login").on("submit",function (e) {  
+        console.log($('#form_login').serialize())
+        e.preventDefault();
+        $.ajax({
+            url:'http://api-breakingnews-web.itheima.net/api/login',
+            method:'POST',
+            data:$('#form_login').serialize(),
+            success:function (res) {  
+                if(res.status === 0){
+                    localStorage.setItem("token",res.token);
+                    location.href = './index.html'
+                }
             }
         })
     })

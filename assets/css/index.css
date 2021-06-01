@@ -1,0 +1,36 @@
+.img-circle{
+    /* display: inline; */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    line-height: 40px;
+    font-size: 20px;
+    background-color: #50AF81;
+    margin-right: 10px;
+}
+.title-div{
+    display: flex !important;
+    justify-content: center;
+}
+.title-div div{
+    text-align: center;
+    margin-top: 10px;
+}
+.title-img{
+    padding: 20px 0;
+    text-align: center;
+    display: flex !important;
+    justify-content: center;
+    line-height: 40px;
+}
+.iframe{
+    width: 100%;
+    height: 100%;
+}
+.layui-body{
+    overflow: hidden;
+}
