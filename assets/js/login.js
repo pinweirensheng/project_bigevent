@@ -8,6 +8,7 @@ $(function () {
         $(".reg-content").hide();
     })
     var form = layui.form;
+    var layer = layui.layer;
     form.verify({ 
         pass: [
             /^[\S]{6,12}$/
@@ -28,12 +29,14 @@ $(function () {
             username:$("#form-reg [name=username]").val(),
             password:$('#form-reg [name=password]').val()
         }
-        $.post('http://api-breakingnews-web.itheima.net/api/reguser',data,function (res) { 
+        $.post('/api/reguser',data,function (res) { 
             console.log(res)
             if(res.status===0){  
                 $(".reg-box").click();
                 $("#form_login [name=username]").val($("#form-reg [name=username]").val())
                 $("#form_login [name=password]").val($("#form-reg [name=password]").val())
+            }else{
+                layer.msg(res.message)
             }
         })
     })
@@ -42,13 +45,15 @@ $(function () {
         console.log($('#form_login').serialize())
         e.preventDefault();
         $.ajax({
-            url:'http://api-breakingnews-web.itheima.net/api/login',
+            url:'/api/login',
             method:'POST',
             data:$('#form_login').serialize(),
             success:function (res) {  
                 if(res.status === 0){
                     localStorage.setItem("token",res.token);
                     location.href = './index.html'
+                }else{
+                    layer.msg(res.message)
                 }
             }
         })

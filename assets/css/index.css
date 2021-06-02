@@ -11,6 +11,7 @@
     font-size: 20px;
     background-color: #50AF81;
     margin-right: 10px;
+    display: none;
 }
 .title-div{
     display: flex !important;
@@ -33,4 +34,18 @@
 }
 .layui-body{
     overflow: hidden;
+}
+.icon-font{
+    margin:0 8px;
+}
+.layui-nav-img{
+    width: 40px;
+    height: 40px;
+    display: none;
+}
+.title-div .layui-nav-img{
+    margin-top: 10px;
+}
+.iconfont{
+    margin-right: 10px;
 }
